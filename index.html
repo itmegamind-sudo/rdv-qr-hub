@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Le Rendez-Vous Café & Eatery</title>
+	<!-- Google Fonts: Battambang -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Battambang:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg-color: #f1edea;
@@ -16,7 +20,7 @@
         }
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Kantumruy Pro", "Noto Sans SC", sans-serif;
+            font-family: "Battambang",-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Kantumruy Pro", "Noto Sans SC", sans-serif;
             background-color: var(--bg-color);
             color: var(--text-dark);
             display: flex;
@@ -24,6 +28,24 @@
             padding: 2.5rem 1.25rem;
             min-height: 100vh;
         }
+		
+		.tag, .label, .lang-btn, p.subtitle {
+			font-family: "Battambang", sans-serif;
+			line-height: 1.4;
+		}
+
+.tag {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--accent);
+}
+
+.label {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--text-btn);
+}
+		
         .container {
             width: 100%;
             max-width: 440px;
