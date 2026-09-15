@@ -20,7 +20,13 @@
             --text-sub: #64748b;
             --text-btn: #ffffff;
         }
-        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
         body {
             font-family: "Battambang", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             background-color: var(--bg-color);
@@ -32,15 +38,16 @@
             position: relative;
         }
 
-        /* Top Right Dropdown Container */
+        /* Top Right Language Dropdown */
         .top-nav {
             position: absolute;
             top: 1rem;
             right: 1.25rem;
             display: flex;
             align-items: center;
-            gap: 6px;
+            z-index: 10;
         }
+
         .lang-select {
             appearance: none;
             -webkit-appearance: none;
@@ -49,17 +56,18 @@
             font-family: "Battambang", sans-serif;
             font-size: 0.85rem;
             font-weight: 700;
-            padding: 6px 30px 6px 12px;
+            padding: 6px 32px 6px 14px;
             border-radius: 20px;
             border: 1.5px solid #cbd5e1;
             cursor: pointer;
             outline: none;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
             background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2214%22%20height%3D%2214%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%2364748b%22%20stroke-width%3D%222.5%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpolyline%20points%3D%226%209%2012%2015%2018%209%22%3E%3C%2Fpolyline%3E%3C%2Fsvg%3E");
             background-repeat: no-repeat;
             background-position: right 10px center;
-            transition: border-color 0.2s;
+            transition: border-color 0.2s ease;
         }
+
         .lang-select:focus {
             border-color: var(--accent);
         }
@@ -70,22 +78,30 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 1.1rem;
+            gap: 1.15rem;
         }
+
+        /* Frameless Clean Logo */
         .brand-logo {
-            width: 105px;
-            height: 105px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 3px solid var(--accent);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-            background-color: #ffffff;
+            width: auto;
+            max-width: 170px;
+            max-height: 110px;
+            height: auto;
+            object-fit: contain;
+            border-radius: 0;
+            border: none;
+            box-shadow: none;
+            background: transparent;
+            display: block;
+            margin: 0 auto;
         }
+
         h1 {
             font-size: 1.65rem;
             font-weight: 700;
             color: var(--text-dark);
             text-align: center;
+            line-height: 1.3;
         }
 
         /* Real-time Clock & Date */
@@ -101,9 +117,20 @@
             border-radius: 20px;
             font-size: 0.88rem;
         }
-        .live-date { color: #cbd5e1; font-weight: 500; }
-        .datetime-separator { color: #64748b; }
-        .live-time { font-weight: 700; color: var(--accent); }
+
+        .live-date {
+            color: #cbd5e1;
+            font-weight: 500;
+        }
+
+        .datetime-separator {
+            color: #64748b;
+        }
+
+        .live-time {
+            font-weight: 700;
+            color: var(--accent);
+        }
 
         p.subtitle {
             color: var(--text-sub);
@@ -111,13 +138,14 @@
             font-weight: 500;
         }
 
-        /* Links Group */
+        /* Menu Links */
         .links-group {
             width: 100%;
             display: flex;
             flex-direction: column;
             gap: 0.85rem;
         }
+
         .link-btn {
             display: flex;
             align-items: center;
@@ -130,24 +158,34 @@
             border: 1px solid var(--border-color);
             transition: transform 0.15s ease, border-color 0.15s ease;
         }
-        .link-btn:active { transform: scale(0.98); }
-        .link-btn:hover { border-color: var(--accent); }
+
+        .link-btn:active {
+            transform: scale(0.98);
+        }
+
+        .link-btn:hover {
+            border-color: var(--accent);
+        }
+
         .tag {
             font-size: 0.85rem;
             font-weight: 700;
             letter-spacing: 0.02em;
             color: var(--accent);
+            line-height: 1.3;
         }
+
         .label {
             font-size: 0.95rem;
             font-weight: 700;
-            color: var(--text-btn);
+            color: var(--text-btn) !important;
+            line-height: 1.3;
         }
     </style>
 </head>
 <body>
 
-    <!-- Top Right Language Dropdown -->
+    <!-- Top-Right Language Switcher -->
     <div class="top-nav">
         <select id="lang-select" class="lang-select" onchange="switchLanguage(this.value)">
             <option value="en">🌐 English</option>
@@ -157,12 +195,12 @@
     </div>
 
     <div class="container">
-        <!-- Brand Logo -->
+        <!-- Frameless Logo -->
         <img src="rdv-logo.png" alt="Le Rendez-Vous Logo" class="brand-logo">
 
         <h1>Le Rendez-Vous Café & Eatery</h1>
 
-        <!-- Live Clock -->
+        <!-- Live Clock & Date -->
         <div class="datetime-box">
             <span id="live-date" class="live-date">Loading date...</span>
             <span class="datetime-separator">|</span>
